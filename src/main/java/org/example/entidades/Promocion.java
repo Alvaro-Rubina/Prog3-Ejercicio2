@@ -2,9 +2,6 @@ package org.example.entidades;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.HashSet;
@@ -27,5 +24,6 @@ public class Promocion {
     private double precioPromocional;
     private TipoPromocion tipoPromocion;
 
+    private Set<Articulo> articulos = new HashSet<Articulo>();
     private Set<Imagen> promoImagen = new HashSet<Imagen>();
 }

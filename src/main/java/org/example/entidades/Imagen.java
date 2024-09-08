@@ -6,10 +6,8 @@ import lombok.*;
 @NoArgsConstructor
 @Getter @Setter
 @Builder
-public class Imagen {
 
-    //
+public class Imagen {
     private Long id;
     private String denominacion;
-
 }

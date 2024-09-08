@@ -3,26 +3,24 @@ package org.example;
 import org.example.entidades.*;
 import org.example.repositorio.InMemoryRepository;
 
+import java.awt.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
-
 import java.util.Set;
 
 public class Main {
 
-    // Repositorios
-    static InMemoryRepository<Articulo> repositorioArticulo = new InMemoryRepository<>();
-    static InMemoryRepository<Imagen> repositorioImagen = new InMemoryRepository<>();
-    static InMemoryRepository<Promocion> repositorioPromocion = new InMemoryRepository<>();
+    static InMemoryRepository<Articulo> repoArticulo = new InMemoryRepository<>();
+    static InMemoryRepository<Imagen> repoImagen = new InMemoryRepository<>();
+    static InMemoryRepository<Promocion> repoPromociones = new InMemoryRepository<>();
 
     public static void main(String[] args) {
 
-        // Unidades de Medida
-        UnidadMedida ochoPorciones = UnidadMedida.builder().denominacion("porciones").build();
-        UnidadMedida cuatroPorciones = UnidadMedida.builder().denominacion("porciones").build();
-        UnidadMedida unLitro = UnidadMedida.builder().denominacion("litro").build();
+        UnidadMedida Porciones8 = UnidadMedida.builder().denominacion("porciones").build();
+        UnidadMedida Porciones4 = UnidadMedida.builder().denominacion("porciones").build();
+        UnidadMedida Litro1 = UnidadMedida.builder().denominacion("litro").build();
 
-        // Imagenes
+
         Imagen imagen1 = Imagen.builder().denominacion("Pizza Grande Hawaiana").build();
         Imagen imagen2 = Imagen.builder().denominacion("Pizza Grande Napolitana").build();
         Imagen imagen3 = Imagen.builder().denominacion("Pizza Grande Muzzarella").build();
@@ -36,177 +34,161 @@ public class Main {
         Imagen verano1 = Imagen.builder().denominacion("Verano").build();
         Imagen verano2 = Imagen.builder().denominacion("Verano").build();
         Imagen invierno1 = Imagen.builder().denominacion("Invierno").build();
-        Imagen inviero2 = Imagen.builder().denominacion("Invierno").build();
+        Imagen invierno2 = Imagen.builder().denominacion("Invierno").build();
         Imagen cerveza1 = Imagen.builder().denominacion("Cerveza Andes").build();
         Imagen cerveza2 = Imagen.builder().denominacion("Cerveza Quilmes").build();
 
-        // Promociones
-        Articulo pizzaGrandeHawaiana = Articulo.builder().denominacion("Pizza Grande Hawaiana")
-                .precioVenta(5500.0)
-                .precioCompra(3500.0)
-                .stockActual(25)
-                .stockMaximo(50)
-                .unidadMedida(ochoPorciones)
+
+        Articulo PizzaGrandeHawaiana = Articulo.builder().denominacion("Pizza Grande Hawaiana")
+                .precioVenta(7000.0)
+                .precioCompra(5000.0)
+                .stockActual(30)
+                .stockMaximo(90)
+                .unidadDeMedida(Porciones8)
                 .imagen(imagen1)
                 .build();
+        repoArticulo.save(PizzaGrandeHawaiana);
+        repoImagen.save(imagen1);
 
-        Articulo pizzaChicaHawaiana = Articulo.builder().denominacion("Pizza Chica Hawaiana")
-                .precioVenta(3500.0)
+        Articulo PizzaChicaHawiana = Articulo.builder().denominacion("Pizza Chica Hawaiana")
+                .precioVenta(4000.0)
                 .precioCompra(2500.0)
-                .stockActual(25)
-                .stockMaximo(50)
-                .unidadMedida(cuatroPorciones)
+                .stockActual(60)
+                .stockMaximo(90)
+                .unidadDeMedida(Porciones4)
                 .imagen(imagen4)
                 .build();
+        repoArticulo.save(PizzaChicaHawiana);
+        repoImagen.save(imagen4);
 
-        Articulo pizzaGrandeNapolitana = Articulo.builder().denominacion("Pizza Grande Napolitana")
-                .precioVenta(5500.0)
-                .precioCompra(3500.0)
-                .stockActual(25)
-                .stockMaximo(50)
-                .unidadMedida(ochoPorciones)
+        Articulo PizzaGrandeNapolitana = Articulo.builder().denominacion("Pizza Grande Napolitana")
+                .precioVenta(8000.0)
+                .precioCompra(4000.0)
+                .stockActual(60)
+                .stockMaximo(90)
+                .unidadDeMedida(Porciones8)
                 .imagen(imagen2)
                 .build();
+        repoArticulo.save(PizzaGrandeNapolitana);
+        repoImagen.save(imagen2);
 
-        Articulo pizzaChicaNapolitana = Articulo.builder().denominacion("Pizza Chica Napolitana")
-                .precioVenta(3500.0)
+        Articulo PizzaChicaNapolitana = Articulo.builder().denominacion("Pizza Chica Napolitana")
+                .precioVenta(4000.0)
                 .precioCompra(2500.0)
-                .stockActual(25)
-                .stockMaximo(50)
-                .unidadMedida(cuatroPorciones)
+                .stockActual(60)
+                .stockMaximo(90)
+                .unidadDeMedida(Porciones4)
                 .imagen(imagen5)
                 .build();
+        repoArticulo.save(PizzaChicaNapolitana);
+        repoImagen.save(imagen5);
 
-        Articulo pizzaGrandeMuzzarella = Articulo.builder().denominacion("Pizza Grande Muzzarella")
-                .precioVenta(5500.0)
+        Articulo PizzaGrandeMuzzarella = Articulo.builder().denominacion("Pizza Grande Muzarella")
+                .precioVenta(8000.0)
                 .precioCompra(3500.0)
-                .stockActual(25)
-                .stockMaximo(50)
-                .unidadMedida(ochoPorciones)
+                .stockActual(60)
+                .stockMaximo(90)
+                .unidadDeMedida(Porciones8)
                 .imagen(imagen3)
                 .build();
+        repoArticulo.save(PizzaGrandeMuzzarella);
+        repoImagen.save(imagen3);
 
-        Articulo pizzaChicaMuzzarella = Articulo.builder().denominacion("Pizza Chica Muzzarella")
-                .precioVenta(3500.0)
+        Articulo PizzaChicaMuzzarella = Articulo.builder().denominacion("Pizza Chica Muzarrella")
+                .precioVenta(4000.0)
                 .precioCompra(2500.0)
-                .stockActual(25)
-                .stockMaximo(50)
-                .unidadMedida(cuatroPorciones)
+                .stockActual(60)
+                .stockMaximo(90)
+                .unidadDeMedida(Porciones4)
                 .imagen(imagen6)
                 .build();
+        repoArticulo.save(PizzaChicaMuzzarella);
+        repoImagen.save(imagen6);
 
-        Articulo cervezaAndes = Articulo.builder().denominacion("Cerveza Andes")
-                .precioVenta(1500.0)
-                .precioCompra(1000.0)
-                .stockActual(25)
-                .stockMaximo(50)
-                .unidadMedida(unLitro)
+        Articulo CervezaAndes = Articulo.builder().denominacion("Cerveza Andes")
+                .precioVenta(3000.0)
+                .precioCompra(1500.0)
+                .stockActual(60)
+                .stockMaximo(90)
+                .unidadDeMedida(Litro1)
                 .imagen(cerveza1)
                 .build();
+        repoArticulo.save(CervezaAndes);
+        repoImagen.save(cerveza1);
 
-        Articulo cervezaQuilmes = Articulo.builder().denominacion("Cerveza Quilmes")
-                .precioVenta(1500.0)
-                .precioCompra(1000.0)
-                .stockActual(25)
-                .stockMaximo(50)
-                .unidadMedida(unLitro)
+        Articulo CervezaQuilmes = Articulo.builder().denominacion("Cerveza Quilmes")
+                .precioVenta(3500.0)
+                .precioCompra(2500.0)
+                .stockActual(60)
+                .stockMaximo(90)
+                .unidadDeMedida(Litro1)
                 .imagen(cerveza2)
                 .build();
+        repoArticulo.save(CervezaQuilmes);
+        repoImagen.save(cerveza2);
 
         Promocion happyHour = Promocion.builder().denominacion("Happy Hour")
-                .fechaDesde(LocalDate.of(2021, 1, 1))
-                .fechaHasta(LocalDate.of(2021, 12, 31))
-                .horaDesde(LocalTime.of(18, 0))
-                .horaHasta(LocalTime.of(20, 0))
+                .FechaDesde(LocalDate.of(2021, 1, 1))
+                .FechaHasta(LocalDate.of(2021, 12, 31))
+                .HoraDesde(LocalTime.of(18, 0))
+                .HoraHasta(LocalTime.of(20, 0))
                 .descripcionDescuento("2x1 en cervezas")
-                .precioPromocional(11500.0)
+                .precioPromocional(12500.0)
                 .tipoPromocion(TipoPromocion.HAPPY_HOUR)
-                .promoImagen(Set.of(imaHappy1, imaHappy2))
-                .articulos(Set.of(pizzaGrandeMuzzarella, pizzaGrandeHawaiana, cervezaQuilmes))
+                .imagenes(Set.of(imaHappy1, imaHappy2))
+                .articulos(Set.of(PizzaGrandeMuzzarella, PizzaGrandeHawaiana, CervezaQuilmes))
                 .build();
+        repoPromociones.save(happyHour);
 
         Promocion verano = Promocion.builder().denominacion("Verano")
-                .fechaDesde(LocalDate.of(2021, 1, 1))
-                .fechaHasta(LocalDate.of(2021, 3, 31))
-                .horaDesde(LocalTime.of(0, 0))
-                .horaHasta(LocalTime.of(23, 59))
+                .FechaDesde(LocalDate.of(2021, 1, 1))
+                .FechaHasta(LocalDate.of(2021, 3, 31))
+                .HoraDesde(LocalTime.of(0, 0))
+                .HoraHasta(LocalTime.of(23, 59))
                 .descripcionDescuento("20% de descuento en pizzas")
-                .precioPromocional(10000.0)
+                .precioPromocional(11000.0)
                 .tipoPromocion(TipoPromocion.VERANO)
-                .promoImagen(Set.of(verano1, verano2))
-                .articulos(Set.of(pizzaChicaHawaiana, cervezaQuilmes, cervezaAndes, pizzaGrandeNapolitana))
+                .imagenes(Set.of(verano1, verano2))
+                .articulos(Set.of(PizzaChicaHawiana, CervezaQuilmes, CervezaAndes, PizzaGrandeNapolitana))
                 .build();
+        repoPromociones.save(verano);
 
-        Promocion invierno = Promocion.builder()
-                .denominacion("Invierno")
-                .fechaDesde(LocalDate.of(2021, 6, 1))
-                .articulos(Set.of(pizzaGrandeHawaiana, pizzaChicaMuzzarella, cervezaQuilmes))
-                .fechaHasta(LocalDate.of(2021, 8, 31))
-                .horaDesde(LocalTime.of(0, 0))
-                .horaHasta(LocalTime.of(23, 59))
-                .descripcionDescuento("15% de descuento en cervezas")
-                .precioPromocional(8500.0)
+        Promocion invierno = Promocion.builder().denominacion("Invierno")
+                .FechaDesde(LocalDate.of(2021, 1, 1))
+                .FechaHasta(LocalDate.of(2021, 3, 31))
+                .HoraDesde(LocalTime.of(0, 0))
+                .HoraHasta(LocalTime.of(23, 59))
+                .descripcionDescuento("15$ de descuentos en cervezas")
+                .precioPromocional(10000.0)
                 .tipoPromocion(TipoPromocion.INVIERNO)
-                .promoImagen(Set.of(invierno1, inviero2))
-                .articulos(Set.of(pizzaGrandeHawaiana, pizzaChicaMuzzarella, cervezaQuilmes))
+                .imagenes(Set.of(invierno1, invierno2))
+                .articulos(Set.of(PizzaGrandeHawaiana, PizzaChicaMuzzarella, CervezaQuilmes))
                 .build();
+        repoPromociones.save(invierno);
 
 
-        repositorioArticulo.save(pizzaGrandeHawaiana);
-        repositorioArticulo.save(pizzaChicaHawaiana);
-        repositorioArticulo.save(pizzaGrandeNapolitana);
-        repositorioArticulo.save(pizzaChicaNapolitana);
-        repositorioArticulo.save(pizzaGrandeMuzzarella);
-        repositorioArticulo.save(pizzaChicaMuzzarella);
-        repositorioArticulo.save(cervezaAndes);
-        repositorioArticulo.save(cervezaQuilmes);
 
-        // Imagenes
-        repositorioImagen.save(imagen1);
-        repositorioImagen.save(imagen2);
-        repositorioImagen.save(imagen3);
-        repositorioImagen.save(imagen4);
-        repositorioImagen.save(imagen5);
-        repositorioImagen.save(imagen6);
-        repositorioImagen.save(imagen7);
-        repositorioImagen.save(imagen8);
-        repositorioImagen.save(imaHappy1);
-        repositorioImagen.save(imaHappy2);
-        repositorioImagen.save(verano1);
-        repositorioImagen.save(verano2);
-        repositorioImagen.save(invierno1);
-        repositorioImagen.save(inviero2);
-        repositorioImagen.save(cerveza1);
-        repositorioImagen.save(cerveza2);
 
-        // Promociones
-        repositorioPromocion.save(happyHour);
-        repositorioPromocion.save(verano);
-        repositorioPromocion.save(invierno);
-
-        // Mostrando las promociones
-        System.out.println("\n5.a) ----------------------------------");
-        System.out.println("** PROMOCIONES");
-        for (Promocion promocion : repositorioPromocion.findAll()) {
+        System.out.println("----- PROMOCIONES -----");
+        for (Promocion promocion : repoPromociones.findAll()) {
             System.out.println("Promoción: " + promocion.getDenominacion());
         }
+        System.out.println();
 
-        // Mostrando los articulos
-        System.out.println("\n5.b) ----------------------------------");
-        System.out.println("** ARTICULOS");
-        for (Articulo articulo : repositorioArticulo.findAll()) {
+
+        System.out.println("-- ARTICULOS --");
+        for (Articulo articulo : repoArticulo.findAll()) {
             System.out.println("Articulo: " + articulo.getDenominacion());
         }
+        System.out.println();
 
         // Mostrando los articulos de cada promocion por separado
-        System.out.println("\n5.c) ----------------------------------");
         mostrarArticulosDePromocion(1L);
         mostrarArticulosDePromocion(2L);
         mostrarArticulosDePromocion(3L);
 
         // Mostrando día y horario de la promoción de verano
-        System.out.println("\n5.d) ----------------------------------");
-        System.out.println("** Promoción de verano");
+        System.out.println("- Promoción de verano");
         System.out.println("Fecha desde: " + verano.getFechaDesde());
         System.out.println("Fecha hasta: " + verano.getFechaHasta());
         System.out.println("Hora desde: " + verano.getHoraDesde());
@@ -215,16 +197,16 @@ public class Main {
         // Mostrando la promocion más economica
         System.out.println("\n5.e) ----------------------------------");
         System.out.println("** Promoción más económica");
-        System.out.println("Promoción: " + obtenerPromoMasEconomica().getDenominacion() +
-                " - $" + obtenerPromoMasEconomica().getPrecioPromocional());
+        System.out.println("Promoción: " + obtenerPromoMasEconomica().getDenominacion() + " - $" + obtenerPromoMasEconomica().getPrecioPromocional());
+
     }
 
     public static void mostrarArticulosDePromocion(Long id) {
-        Promocion promocion = repositorioPromocion.findById(id).get();
-        System.out.println("** Promoción " + promocion.getDenominacion());
-        System.out.println("* Articulos:");
+        Promocion promocion = repoPromociones.findById(id).get();
+        System.out.println(". Promoción: " + promocion.getDenominacion());
+        System.out.println("  Articulos:");
         for (Articulo articulo : promocion.getArticulos()) {
-            System.out.println("- " + articulo.getDenominacion() + " - $" + articulo.getPrecioVenta());
+            System.out.println(". " + articulo.getDenominacion() + " - $" + articulo.getPrecioVenta());
         }
         System.out.println("\n");
     }
@@ -232,12 +214,15 @@ public class Main {
     public static Promocion obtenerPromoMasEconomica(){
         Promocion promoMasEconomica = null;
         double precioPromoMasEconomica = Double.MAX_VALUE;
-        for (Promocion promocion : repositorioPromocion.findAll()) {
+
+        for (Promocion promocion : repoPromociones.findAll()) {
             if (promocion.getPrecioPromocional() < precioPromoMasEconomica) {
                 precioPromoMasEconomica = promocion.getPrecioPromocional();
                 promoMasEconomica = promocion;
             }
         }
+
         return promoMasEconomica;
     }
+
 }

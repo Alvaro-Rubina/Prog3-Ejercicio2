@@ -6,16 +6,15 @@ import lombok.*;
 @NoArgsConstructor
 @Getter @Setter
 @Builder
-public class Articulo {
 
-    //
+public class Articulo {
     private Long id;
     private String denominacion;
     private Double precioVenta;
     private Double precioCompra;
     private Integer stockActual;
     private Integer stockMaximo;
-
-    private UnidadMedida unidadMedida;
+    private UnidadMedida unidadDeMedida;
     private Imagen imagen;
+
 }

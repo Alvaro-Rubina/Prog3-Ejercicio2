@@ -6,11 +6,9 @@ import lombok.*;
 @NoArgsConstructor
 @Getter @Setter
 @Builder
-public class UnidadMedida {
 
-    //
+public class UnidadMedida {
     private Long id;
     private String denominacion;
-
 
 }

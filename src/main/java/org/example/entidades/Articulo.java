@@ -2,6 +2,9 @@ package org.example.entidades;
 
 import lombok.*;
 
+import javax.persistence.*;
+
+@Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter @Setter
@@ -9,6 +12,8 @@ import lombok.*;
 public class Articulo {
 
     //
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String denominacion;
     private Double precioVenta;
@@ -16,6 +21,11 @@ public class Articulo {
     private Integer stockActual;
     private Integer stockMaximo;
 
+    @ManyToOne
+    @JoinColumn(name = "unidad_id")
     private UnidadMedida unidadMedida;
+
+    @OneToOne
+    @JoinColumn(name = "imagen_id")
     private Imagen imagen;
 }
